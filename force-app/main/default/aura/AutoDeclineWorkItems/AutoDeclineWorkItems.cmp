@@ -1,0 +1,30 @@
+<aura:component implements="lightning:backgroundUtilityItem" access="global">
+    <!-- Attributes -->
+    <aura:attribute name="declineReason" type="String" default="Agent status changed to busy/away" description="Reason for declining work items" />
+    <aura:attribute name="isEnabled" type="Boolean" default="true" description="Whether auto-decline is enabled" />
+    
+    <!-- State attributes -->
+    <aura:attribute name="isProcessing" type="Boolean" default="false" description="Processing state" />
+    <aura:attribute name="lastProcessedTime" type="DateTime" description="Last time auto-decline was processed" />
+    <aura:attribute name="declinedCount" type="Integer" default="0" description="Number of work items declined" />
+    
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- OmniToolkit API Event Handlers -->
+    <aura:handler event="lightning:omniChannelStatusChanged" action="{!c.handleOmniChannelStatusChanged}" />
+    
+    <!-- Include Omni Toolkit API -->
+    <lightning:omniToolkitAPI aura:id="omniToolkit" />
+    
+    <!-- Toast for notifications -->
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    
+    <!-- Hidden component - no UI needed for background operation -->
+    <div class="slds-hide">
+        <!-- This component runs in the background without visible UI -->
+        <aura:if isTrue="{!v.isProcessing}">
+            <lightning:spinner size="small" />
+        </aura:if>
+    </div>
+</aura:component>

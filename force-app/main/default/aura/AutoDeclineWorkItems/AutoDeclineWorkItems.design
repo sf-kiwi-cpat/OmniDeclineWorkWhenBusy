@@ -1,0 +1,4 @@
+<design:component label="Auto Decline Work Items">
+    <design:attribute name="declineReason" label="Decline Reason" description="Reason for declining work items when status changes to busy/away" />
+    <design:attribute name="isEnabled" label="Enabled" description="Whether auto-decline functionality is enabled" />
+</design:component>

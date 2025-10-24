@@ -1,0 +1,24 @@
+/* AutoDeclineWorkItems component styles */
+.THIS {
+    /* Hidden component - no visible UI needed - using SLDS utility class */
+}
+
+/* Ensure the component is completely hidden */
+.THIS .auto-decline-card,
+.THIS .auto-decline-section,
+.THIS .auto-decline-notify {
+    display: none;
+}
+
+/* Only show processing indicator if needed for debugging */
+.THIS .processing-indicator {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+}

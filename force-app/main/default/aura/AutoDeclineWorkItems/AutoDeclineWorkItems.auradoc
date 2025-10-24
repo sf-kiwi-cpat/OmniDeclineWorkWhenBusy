@@ -1,0 +1,18 @@
+<aura:documentation>
+    <aura:description>
+        AutoDeclineWorkItems is a background Aura component that automatically declines all assigned work items when an agent's status changes to busy/away.
+        
+        This component:
+        - Listens to the 'lightning:omniChannelStatusChanged' event
+        - Monitors for status changes to busy/away states (detected by empty channels array)
+        - Automatically gets all assigned work items using getAgentWorks()
+        - Declines each assigned work item using declineAgentWork()
+        - Provides configurable decline reasons
+        
+        The component runs as a background utility item without any visible UI and automatically monitors Omni-Channel status changes.
+    </aura:description>
+    
+    <aura:example name="Background Utility Item" label="Background Utility Item" ref="c:AutoDeclineWorkItems">
+        This component runs automatically as a background utility item and doesn't need to be added to pages. It will automatically monitor Omni-Channel status changes for all users.
+    </aura:example>
+</aura:documentation>
