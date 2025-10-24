@@ -107,7 +107,10 @@
                 component.set("v.lastProcessedTime", new Date());
                 
                 if (declinedCount > 0) {
-                    self.showToast(notifLib, "Auto-Decline", "Successfully declined " + declinedCount + " work items", "success");
+                    var showSuccessToast = component.get("v.showSuccessToast");
+                    if (showSuccessToast) {
+                        self.showToast(notifLib, "Auto-Decline", "Successfully declined " + declinedCount + " work items", "success");
+                    }
                 }
             })
             .catch(function(error) {
